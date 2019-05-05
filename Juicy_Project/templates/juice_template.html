@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Juicy Juice Ingredient Index</title>
+<link  rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" />
+</head>
+<script>
+<!-- the script populates the list of juices in the right pane -->
+function showJuices(element) {
+	document.getElementById("juice").innerHTML = ""
+	mystr = element.innerHTML;
+	myvar = {{ js_dict|tojson|safe }};
+	myjson = JSON.parse(myvar)
+	for (var I = 0; I < myjson[mystr].length; I++)
+	{
+		juiceList = "<li>" + myjson[mystr][I] + "</li>";
+		document.getElementById("juice").innerHTML += juiceList;
+	}
+}
+</script>
+<body style="background-image: url('static/images/Citrus_fruits.jpg');">
+
+	<div class="main">
+		<div class="header">
+			<h1>Our Finest Ingredients</h1>
+			<p class="base">Select an ingredient to see the products that have it!</p>
+		</div>
+		<div class="body">
+			<table>
+				<tr>
+					<td>
+						<div class="leftbox">
+							<ul style="list-style-type:none;padding:0;">
+							{% for value in ingredient_list %}
+								<li>
+									<span id="ingred" onclick="showJuices(this)" class="ingreds">{{ value }}</span>
+								</li>
+							{% endfor %}
+							</ul>
+						</div>
+					</td>
+					<td>
+						<div class="rightbox">
+							<ul style="list-style-type:none;padding:0;">
+								<span id="juice" class="juices"></span>
+							</ul>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<hr/>
+	<!-- attribution required by Nutritionix -->
+	<a  href="http://www.nutritionix.com/api"><img class="attrib" alt="Powered by Nutritionix API" src="static/images/poweredby_nutritionix_api.png" /></a>
+
+</body>
+</html> 

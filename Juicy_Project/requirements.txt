@@ -1,0 +1,15 @@
+Used in Juicy Project:
+
+- Python==3.7
+
+- pip==19.1: this should be included in Python 3.7
+
+- Flask==1.0.2: framework to push python code and data to the web
+
+- Jinja2==2.10.x: packaged with Flask; used to implement HTML template
+
+- Python packages:
+	json - utilizing and formatting JSON files
+	re - utilizing regular expressions
+	math - utilizing ceiling function in returning number of requests
+	requests - utilizing API requests to Nutritionix
