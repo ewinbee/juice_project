@@ -23,5 +23,3 @@ Installation:
 		$ flask run
 	c. Then use Firefox or Chrome to navigate to the link given in the command line.  Voila!  A Juicy webpage.
 	d. Don't forget to CTRL-c from the command line when you're finished!
-
-Please see project_notes.txt for additional notes, code compromises, and other information.
